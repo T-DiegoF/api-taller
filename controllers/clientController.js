@@ -1,5 +1,4 @@
 const { response, request } = require("express");
-const client = require("../models/client");
 const Client = require("../models/client");
 
 exports.index = function (req, res) {
@@ -38,8 +37,15 @@ exports.client_put = async function (req, res = response) {
   } catch (error) {
     console.log("error : " + error);
   }
+};
 
+exports.car_list_of_a_client = async function (req, res) {
+  try {
+    const { _id } = req.params;
+    const response = await Client.findById(_id)
+    res.json(response)
 
-
-
+  } catch (error) {
+    console.log("Error al obtener lista de autos : " + error);
+  }
 };
