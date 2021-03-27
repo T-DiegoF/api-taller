@@ -46,6 +46,6 @@ exports.car_list_of_a_client = async function (req, res) {
     res.json(response)
 
   } catch (error) {
-    console.log("Error al obtener lista de autos : " + error);
+    console.log("Error in method car_listof_a_client : " + error);
   }
 };
