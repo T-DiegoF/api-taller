@@ -1,0 +1,14 @@
+let express = require("express");
+let router = express.Router();
+
+let client_controller = require("../controllers/clientController");
+
+// GET catalog home page.
+router.get("/", client_controller.index);
+
+//CLIENT ROUTES
+router.post("/client/create", client_controller.client_create_post);
+router.get("/clients", client_controller.clients_list);
+router.put("/:_id", client_controller.client_put);
+
+module.exports = router;
