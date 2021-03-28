@@ -1,13 +1,13 @@
 const { response, request } = require("express");
-const Client = require("../models/client");
+const User = require("../models/user");
 
 exports.index = function (req, res) {
-  res.send("NOT IMPLEMENTED: Site Home Page");
+  res.send("Home Page");
 };
 
 exports.clients_list = async function (req = request, res = response) {
   try {
-    const clients = await Client.find({});
+    const clients = await User.find({});
     res.json(clients);
   } catch (error) {
     console.log("Error en el clientController  : " + error);
@@ -16,36 +16,16 @@ exports.clients_list = async function (req = request, res = response) {
 
 exports.client_create_post = async function (req = request, res = response) {
   const body = req.body;
-  const client = new Client(body);
+  const client = new User(body);
   await client.save();
   res.status(201).send("OK");
 };
 
-exports.client_put = async function (req, res = response) {
-  try {
-    const { _id } = req.params;
-    const usuario = await Client.findByIdAndUpdate(
-      _id,
-      {
-        $push: { cars: JSON.stringify(req.body) },
-      },
-      { useFindAndModify: true }
-    );
-    res
-      .send(`the client ${usuario.nombre} have new car/s ${usuario.cars}`)
-      .status(200);
-  } catch (error) {
-    console.log("error : " + error);
-  }
-};
-
 exports.car_list_of_a_client = async function (req, res) {
   try {
-    const { _id } = req.params;
-    const response = await Client.findById(_id)
-    res.json(response)
-
-  } catch (error) {
-    console.log("Error in method car_listof_a_client : " + error);
+    const user = await User.findById(req.params.id).populate("cars")
+    res.send(user)
+  } catch (err) {
+    res.status(500).send("Something went wrong");
   }
 };
