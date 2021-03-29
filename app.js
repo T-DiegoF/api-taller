@@ -3,10 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
 var cors = require('cors')
 
-var indexRouter = require('./routes/index');
 var catalogRouter = require('./routes/routes');
 const { dbConnection } = require('./database/config');
 
@@ -41,7 +39,9 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error').status(500)
+  console.log("ERROR STACK : " + err.stack)
+ 
 });
 
 module.exports = app;
