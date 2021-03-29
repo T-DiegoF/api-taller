@@ -19,8 +19,8 @@ ClientSchema.virtual("cars", {
 }); 
 
 ClientSchema.method.toJSON = function () {
-  const { __v, name, ...car } = this.toObject();
-  return car;
+  const { __v, _id, ...client } = this.toObject();
+  return client;
 };
 const Client = mongoose.model("Client", ClientSchema);
 module.exports = Client;
