@@ -11,7 +11,7 @@ exports.add_car_to_client = async function (req, res = response) {
       owner: id,
     });
     await car.save();
-    res.send("User and car saved");
+    res.status(200).send("Client and car saved");
   } catch (err) {
     console.log("Error  : " + err);
   }

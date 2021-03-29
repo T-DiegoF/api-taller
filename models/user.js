@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-let UserSchema = new Schema(
+let ClientSchema = new Schema(
   {
     name: { type: String, required: true },
     last_name: { type: String, required: true }
@@ -12,15 +12,15 @@ let UserSchema = new Schema(
   }
 );
 
-UserSchema.virtual("cars", {
+ClientSchema.virtual("cars", {
   ref: "Car",
   localField: "_id",
   foreignField: "owner",
 }); 
 
-UserSchema.method.toJSON = function () {
+ClientSchema.method.toJSON = function () {
   const { __v, name, ...car } = this.toObject();
   return car;
 };
-const User = mongoose.model("User", UserSchema);
-module.exports = User;
+const Client = mongoose.model("Client", ClientSchema);
+module.exports = Client;
