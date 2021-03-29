@@ -9,7 +9,7 @@ let CarSchema = new Schema({
   
   owner: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Client",
   },
   repairs: [{
       description:{type: String},
