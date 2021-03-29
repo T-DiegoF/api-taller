@@ -9,6 +9,13 @@
 7. Ver un listado de todas las reparaciones realizadas ordenadas por fechas, de la más
 reciente a la más antigua.
 
+## Deploy de la app node en Heroku, endpoints.
+Testear los post y put con algun client rest
+- https://challenge-back-taller.herokuapp.com/api/clients
+- https://challenge-back-taller.herokuapp.com/api/car/repair/60620e516aadc24254a40dc1
+- https://challenge-back-taller.herokuapp.com/api/cars/repair/order
+
+
 ## Ejecutar el proyecto
 Primero deben crear un archivo .env en la raiz del proyecto y agregar la variable de entorno que les envie por mail, dicha variable es para la conexion la base de datos (MongoDB) alojada en Mongo Atlas.
 
