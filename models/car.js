@@ -1,17 +1,32 @@
-const { Schema, model } = require("mongoose");
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
 let CarSchema = new Schema({
-  model: { type: String },
-  colour: { type: String },
-
-  client: {
-    type: Schema.Types.ObjectId,
-    ref: "Client",
+  model: {
+    type: String,
+    required: true,
   },
+  
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  repairs: [{
+      description:{type: String},
+      date: {type:Date, default:Date.now}
+    },
+  ],
+  year: {
+    type: Number,
+    required: true,
+  }
+
+
 });
 
 CarSchema.methods.toJSON = function () {
-  const { _v, ...data } = this.toObject();
-  return data;
+  const { __v, ...car } = this.toObject();
+  return car;
 };
-module.exports = model("Car", CarSchema);
+
+module.exports  = mongoose.model("Car", CarSchema);
