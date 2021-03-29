@@ -7,7 +7,7 @@ exports.add_car_to_client = async function (req, res = response) {
   try {
     const car = new Car({
       model: req.body.model,
-      make: req.body.make,
+      year: req.body.year,
       owner: id,
     });
     await car.save();
@@ -35,4 +35,26 @@ exports.update_car = async function (req, res) {
   });
 };
 
-exports.order_for_date_repairs = async function (req, res) {};
+exports.get_repairs = async function (req, res) {
+  try {
+    let id = mongoose.Types.ObjectId(req.params.id);
+    const data = await Car.findById(id);
+    res.json(data.repairs);
+  } catch (error) {
+    res.status(500).send("Something went wrong" + error);
+  }
+};
+
+exports.get_car_order = async function (req, res) {
+  try {
+    let arrayRepairs = [];
+    const data = await Car.find({}).sort("date");
+    //compruebo si el array reparaciones tiene objetos, para evitar devolver los vacios en la vista en caso que no tengan reparaciones 
+    data.forEach((element) => {
+      if (element["repairs"].length > 0) {
+        arrayRepairs.push(element["repairs"]);
+      }
+    });
+    res.json(arrayRepairs);
+  } catch (error) {}
+};

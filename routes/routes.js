@@ -13,6 +13,8 @@ router.get("/client/:id/cars", client_controller.car_list_of_a_client);
 
 //CAR ROUTES
 router.post("/car/:id/create", car_controller.add_car_to_client);
-router.put("/car/:id/update", car_controller.update_car);
+router.put("/car/:id/update", car_controller.update_car); //agrega reparacion al modelo car
+router.get("/car/:id", car_controller.get_repairs);
+router.get("/cars/repair/order", car_controller.get_car_order);
 
 module.exports = router;

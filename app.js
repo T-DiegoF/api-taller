@@ -9,14 +9,9 @@ var catalogRouter = require('./routes/routes');
 const { dbConnection } = require('./database/config');
 
 var app = express();
-app.use(cors())
-
 dbConnection()
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
