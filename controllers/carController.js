@@ -31,7 +31,7 @@ exports.update_car = async function (req, res) {
     if (!data) {
       return res.status(404).end();
     }
-    return res.status(200).send(data);
+    return res.status(200).send("Updated");
   });
 };
 
