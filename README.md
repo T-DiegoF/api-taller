@@ -10,7 +10,7 @@
 reciente a la más antigua.
 
 ## Deploy de la app node en Heroku, endpoints.
-Testear los post y put con algun client rest
+Testear los post y put con algun cliente rest(ejemplo Postman)
 - https://challenge-back-taller.herokuapp.com/api/clients
 - https://challenge-back-taller.herokuapp.com/api/car/repair/60620e516aadc24254a40dc1
 - https://challenge-back-taller.herokuapp.com/api/cars/repair/order
@@ -25,7 +25,7 @@ Instalar las dependencias
 npm i
 ```
 
-## Usage
+## Levantar el proyect local
 
 ```Levantar el proyecto
 npm run dev
@@ -34,7 +34,7 @@ npm run dev
 ## Stack
 Para el desarrollo de la api se uso Node.js, Express.js y Mongoose
 
-## Rutas de clients
+## Rutas
 - GET http://localhost:3000/api/clients 
 - GET http://localhost:3000/api/client/:id/cars
 - POST http://localhost:3000/api/client/create
@@ -43,3 +43,5 @@ Para el desarrollo de la api se uso Node.js, Express.js y Mongoose
 - PUT http://localhost:3000/api/car/:id/update
 - POST http://localhost:3000/api/car/:id/create
 
+## Diagrama base de datos
+![Diagrama base de datos](https://i.ibb.co/yXMxXDb/Diagram-database.png "Diagrama base de datos")
