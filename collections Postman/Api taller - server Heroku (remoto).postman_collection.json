@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "2ec528b0-4ac4-44dd-97a7-0d70bf10dacc",
+		"name": "Api taller - server Heroku (remoto)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "clients",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/clients",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" :\"Pepito\" ,\r\n    \"last_name\" : \"Perez\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/client/create",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"client",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new car",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"Falcon\",\r\n    \"year\": \"1980\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/car/60620ba4bc85b113f4177c1f/create",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"car",
+						"60620ba4bc85b113f4177c1f",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list_cars",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"Chevrolet\",\r\n    \"year\": 2017\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/car/60620ba4bc85b113f4177c1f/create",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"car",
+						"60620ba4bc85b113f4177c1f",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add repair to car",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n        \"description\": \"Cambio de luces\",\r\n        \"date\": \"2012-01-18\"\r\n    \r\n    \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/car/60626e9f0cd35b19d4fd3fd1/update",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"car",
+						"60626e9f0cd35b19d4fd3fd1",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get repairs of a car",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/car/repair/60620e516aadc24254a40dc1",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"car",
+						"repair",
+						"60620e516aadc24254a40dc1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get repairs order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/te",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://challenge-back-taller.herokuapp.com/api/cars/repair/order",
+					"protocol": "https",
+					"host": [
+						"challenge-back-taller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"cars",
+						"repair",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

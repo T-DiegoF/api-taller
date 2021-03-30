@@ -13,7 +13,7 @@ let CarSchema = new Schema({
   },
   repairs: [{
       description:{type: String},
-      date: {type:Date, default:Date.now}
+      date: {type:Date}
     },
   ],
   year: {
